@@ -37,8 +37,7 @@ Una vez iniciado el proyecto o visto el código notarás la diversidad de endpoi
 - ### Detalles de la pelicula - GET `api.themoviedb.org/3/movie/:id`
   - #### Parametros: id (integer), directiva para unificar consultas
 - ### Peliculas en reproduccion/estrenadas - GET `api.themoviedb.org/3/movie/now_playing`
-- ### Peliculas populares - GET
-  `/api.themoviedb.org/3/movie/popular`
-- ### Proximos estrenos - DELETE `api.themoviedb.org/3/movie/upcoming`
+- ### Peliculas populares - GET `/api.themoviedb.org/3/movie/popular`
+- ### Proximos estrenos - GET `api.themoviedb.org/3/movie/upcoming`
 
 **Nota: La api de TMVDB incluye una apikey que por obvias razones no se mostrara en las rutas**
