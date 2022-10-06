@@ -4,8 +4,6 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  setPersistence,
-  browserLocalPersistence,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
@@ -18,15 +16,14 @@ export const useAuth = () => {
 };
 
 function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(auth.currentUser);
 
   const signup = (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
 
-  const login = (email, password) => {
+  const login = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
-    setPersistence(auth, browserLocalPersistence);
-  };
+
   const logout = () => signOut(auth);
 
   useEffect(() => {

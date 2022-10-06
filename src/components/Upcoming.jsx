@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 //Estilo
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import Carousel from "react-bootstrap/Carousel";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 

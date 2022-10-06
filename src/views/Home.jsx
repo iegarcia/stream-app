@@ -31,12 +31,7 @@ const Home = () => {
               <Nav.Link style={{ color: "white" }} href="/upcoming">
                 Upcoming movies
               </Nav.Link>
-              <Nav.Link style={{ color: "white" }} href="#link">
-                Link
-              </Nav.Link>
-              <Nav.Link style={{ color: "white" }} href="#link">
-                Link
-              </Nav.Link>
+
               <Nav.Link style={{ color: "white" }} onClick={handleLogout}>
                 Logout
               </Nav.Link>

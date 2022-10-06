@@ -29,14 +29,14 @@ const ContentDetails = () => {
       const trailer = await results.find(validateVideo);
 
       async function validateVideo(v) {
-        return v.type == "Trailer";
+        return v.type === "Trailer";
       }
 
       setVideo(trailer);
       setDetails(data);
     }
     getDetails();
-  }, []);
+  }, [id]);
 
   return (
     <div key={details.id}>
