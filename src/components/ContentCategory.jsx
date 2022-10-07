@@ -15,7 +15,7 @@ const ContentCategory = (props) => {
       "https://api.themoviedb.org/3/discover/movie",
       {
         params: {
-          api_key: "",
+          api_key: process.env.REACT_APP_KEY,
           with_genres: props.genre_id,
         },
       }

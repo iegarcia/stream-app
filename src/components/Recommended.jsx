@@ -17,7 +17,7 @@ const Recommended = () => {
         "https://api.themoviedb.org/3/movie/popular",
         {
           params: {
-            api_key: "",
+            api_key: process.env.REACT_APP_KEY,
           },
         }
       );

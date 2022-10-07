@@ -17,7 +17,7 @@ const NowPlaying = () => {
         "https://api.themoviedb.org/3/movie/now_playing",
         {
           params: {
-            api_key: "",
+            api_key: process.env.REACT_APP_KEY,
           },
         }
       );

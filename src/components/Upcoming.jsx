@@ -16,7 +16,7 @@ const Upcoming = () => {
         "https://api.themoviedb.org/3/movie/upcoming",
         {
           params: {
-            api_key: "",
+            api_key: process.env.REACT_APP_KEY,
           },
         }
       );

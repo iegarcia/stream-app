@@ -19,7 +19,7 @@ const ContentDetails = () => {
         `https://api.themoviedb.org/3/movie/${id}`,
         {
           params: {
-            api_key: "",
+            api_key: process.env.REACT_APP_KEY,
             append_to_response: "videos",
           },
         }
