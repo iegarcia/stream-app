@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 //Estilo
 import Container from "react-bootstrap/Container";
@@ -7,25 +6,18 @@ import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { getData } from "../functions";
 
 const Recommended = () => {
   const [popular, setpopular] = useState([]);
 
   useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
-        "https://api.themoviedb.org/3/movie/popular",
-        {
-          params: {
-            api_key: process.env.REACT_APP_KEY,
-          },
-        }
-      );
-      const data = response.data;
+    async function run() {
+      const data = await getData("popular");
 
       setpopular(data.results);
     }
-    getData();
+    run();
   }, []);
 
   return (

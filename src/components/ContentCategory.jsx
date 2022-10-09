@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import { getDataByGenre } from "../functions";
 
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
@@ -10,23 +10,13 @@ import Row from "react-bootstrap/Row";
 const ContentCategory = (props) => {
   const [moviesByGenre, setmoviesByGenre] = useState([]);
 
-  async function getData() {
-    const response = await axios.get(
-      "https://api.themoviedb.org/3/discover/movie",
-      {
-        params: {
-          api_key: process.env.REACT_APP_KEY,
-          with_genres: props.genre_id,
-        },
-      }
-    );
-    const data = response.data;
-    console.log(moviesByGenre);
+  async function run() {
+    const data = await getDataByGenre(props.genre_id);
     setmoviesByGenre(data.results);
   }
 
   const clear = () => setmoviesByGenre([]);
-  const fill = () => getData();
+  const fill = () => run();
   return (
     <Modal
       onExited={clear}

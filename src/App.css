@@ -24,3 +24,20 @@
   font-size: 20px;
   margin-top: 1rem;
 }
+
+.arrow-back {
+  width: 17px;
+  transform: rotate(180deg);
+}
+
+@media (min-width: 360px) and (min-height: 600px) {
+  .App {
+    height: unset;
+  }
+}
+
+@media (min-width: 768px) {
+  .App {
+    height: 100vh;
+  }
+}

@@ -22,7 +22,10 @@ const Home = () => {
           <Navbar.Brand href="/" style={{ color: "white" }}>
             Stream App
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            style={{ backgroundColor: "white" }}
+          />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <Nav.Link style={{ color: "white" }} href="/">

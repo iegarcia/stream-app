@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { getDataById } from "../functions";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+
+import arrow from "../assets/arrow.svg";
 
 const ContentDetails = () => {
   const location = useLocation();
@@ -14,17 +16,8 @@ const ContentDetails = () => {
   const [video, setVideo] = useState([]);
 
   useEffect(() => {
-    async function getDetails() {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}`,
-        {
-          params: {
-            api_key: process.env.REACT_APP_KEY,
-            append_to_response: "videos",
-          },
-        }
-      );
-      const data = response.data;
+    async function run() {
+      const data = await getDataById(id);
       const { results } = data.videos;
       const trailer = await results.find(validateVideo);
 
@@ -35,14 +28,19 @@ const ContentDetails = () => {
       setVideo(trailer);
       setDetails(data);
     }
-    getDetails();
+    run();
   }, [id]);
 
   return (
     <div key={details.id}>
       <Container>
         <Row className="content-details">
-          <h2>{details.title}</h2>
+          <h2>
+            <a href="/" style={{ textDecoration: "none", color: "white" }}>
+              <img className="arrow-back" src={arrow} alt="arrow" />{" "}
+              {details.title}
+            </a>
+          </h2>
           <hr />
           <Col sm={6}>
             <img
@@ -54,11 +52,11 @@ const ContentDetails = () => {
           <Col md={6}>
             <h2>Trailer</h2>
             <iframe
-              width="600"
-              height="500"
+              width="100%"
+              height="400"
               src={`https://www.youtube.com/embed/${video.key}`}
               title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
           </Col>
         </Row>

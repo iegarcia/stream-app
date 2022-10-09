@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { getData } from "../functions";
 
 //Estilo
 import Container from "react-bootstrap/Container";
@@ -12,20 +12,11 @@ const NowPlaying = () => {
   const [movies, setmovies] = useState([]);
 
   useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
-        "https://api.themoviedb.org/3/movie/now_playing",
-        {
-          params: {
-            api_key: process.env.REACT_APP_KEY,
-          },
-        }
-      );
-      const data = response.data;
-
+    async function run() {
+      const data = await getData("now_playing");
       setmovies(data.results);
     }
-    getData();
+    run();
   }, []);
 
   return (

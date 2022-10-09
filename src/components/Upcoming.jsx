@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { getData } from "../functions";
 
 //Estilo
 import Container from "react-bootstrap/Container";
@@ -8,23 +8,15 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 const Upcoming = () => {
-  const [movies, setmovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
-        "https://api.themoviedb.org/3/movie/upcoming",
-        {
-          params: {
-            api_key: process.env.REACT_APP_KEY,
-          },
-        }
-      );
-      const data = response.data;
+    async function run() {
+      const data = await getData("upcoming");
 
-      setmovies(data.results);
+      setMovies(data.results);
     }
-    getData();
+    run();
   }, []);
 
   return (
