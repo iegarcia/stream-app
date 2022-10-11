@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <Container>
         <h1 className="app-text">Stream App</h1>
         <h2 className="app-text">

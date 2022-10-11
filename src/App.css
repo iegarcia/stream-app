@@ -36,8 +36,8 @@
   }
 }
 
-@media (min-width: 768px) {
-  .App {
+@media (min-width: 360px) {
+  .login {
     height: 100vh;
   }
 }
