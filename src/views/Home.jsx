@@ -1,5 +1,3 @@
-import { useAuth } from "../context/AuthContext";
-
 import ContinueWatching from "../components/ContinueWatching";
 import Recommended from "../components/Recommended";
 import Categories from "../components/Categories";
@@ -9,11 +7,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 const Home = () => {
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
 
-  const handleLogout = async () => {
-    await logout();
-  };
+  // const handleLogout = async () => {
+  //   await logout();
+  // };
 
   return (
     <div>
@@ -35,12 +33,12 @@ const Home = () => {
                 Upcoming movies
               </Nav.Link>
 
-              <Nav.Link style={{ color: "white" }} onClick={handleLogout}>
+              {/* <Nav.Link style={{ color: "white" }} onClick={handleLogout}>
                 Logout
-              </Nav.Link>
-              <Navbar.Text className="justify-content-end">
-                Welcome {user.email}
-              </Navbar.Text>
+              </Nav.Link> */}
+              {/* <Navbar.Text className="justify-content-end text-light">
+                Welcome!
+              </Navbar.Text> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

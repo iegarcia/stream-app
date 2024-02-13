@@ -45,7 +45,12 @@ const Categories = () => {
 
   return (
     <div>
-      <CardGroup style={{ display: "inline-flex", justifyContent: "center" }}>
+      <CardGroup
+        style={{
+          display: "inline-flex",
+          justifyContent: "center",
+        }}
+      >
         {genres.map((genre) => {
           return (
             <Card
@@ -54,6 +59,7 @@ const Categories = () => {
                 border: 0,
                 backgroundColor: "unset",
                 width: "fit-content",
+                cursor: "pointer",
               }}
               onClick={() => {
                 setModalShow(true);

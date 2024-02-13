@@ -1,7 +1,11 @@
+#root {
+  height: 100vh;
+  background-color: #141622;
+}
+
 .App {
   text-align: center;
   background-color: #141622;
-  height: 100vh;
 }
 .login-form {
   width: 100%;
@@ -30,14 +34,14 @@
   transform: rotate(180deg);
 }
 
-@media (min-width: 360px) and (min-height: 600px) {
+/* @media (min-width: 360px) and (min-height: 600px) {
   .App {
     height: unset;
   }
-}
+} */
 
-@media (min-width: 360px) {
-  .login {
-    height: 100vh;
+@media (max-width: 360px) {
+  .App {
+    height: unset;
   }
 }
